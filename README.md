@@ -1,10 +1,10 @@
-# vSync
+# weathertimesync
 
 ### Simple weather and time sync script for FiveM servers.
 
-**Current version:** 1.3.0
-**Author:** Vespura
-**Last update:** 01-13-2018
+I've renamed the resource in my fork to avoid any confusion related to vertical sync.
+
+**Original Author:** Vespura
 
 ***
 
