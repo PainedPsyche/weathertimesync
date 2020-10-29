@@ -6,8 +6,8 @@ local timer = 0
 local freezeTime = false
 local blackout = false
 
-RegisterNetEvent('vSync:updateWeather')
-AddEventHandler('vSync:updateWeather', function(NewWeather, newblackout)
+RegisterNetEvent('weathertimesync:updateWeather')
+AddEventHandler('weathertimesync:updateWeather', function(NewWeather, newblackout)
     CurrentWeather = NewWeather
     blackout = newblackout
 end)
@@ -36,8 +36,8 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('vSync:updateTime')
-AddEventHandler('vSync:updateTime', function(base, offset, freeze)
+RegisterNetEvent('weathertimesync:updateTime')
+AddEventHandler('weathertimesync:updateTime', function(base, offset, freeze)
     freezeTime = freeze
     timeOffset = offset
     baseTime = base
@@ -64,7 +64,7 @@ Citizen.CreateThread(function()
 end)
 
 AddEventHandler('playerSpawned', function()
-    TriggerServerEvent('vSync:requestSync')
+    TriggerServerEvent('weathertimesync:requestSync')
 end)
 
 Citizen.CreateThread(function()
@@ -87,7 +87,7 @@ function ShowNotification(text, blink)
     DrawNotification(blink, false)
 end
 
-RegisterNetEvent('vSync:notify')
-AddEventHandler('vSync:notify', function(message, blink)
+RegisterNetEvent('weathertimesync:notify')
+AddEventHandler('weathertimesync:notify', function(message, blink)
     ShowNotification(message, blink)
 end)
